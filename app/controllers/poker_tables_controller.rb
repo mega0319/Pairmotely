@@ -13,10 +13,10 @@ class PokerTablesController < ApplicationController
       user = User.find(user_id)
       table.users << user
       user.current_table = table.id
-      table.save
       user.save
     end
 
+    table.save
     render json: table
   end
 
