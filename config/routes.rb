@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
   resources :users
   resources :poker_tables
+  resources :messages
   post '/auth', to: 'auth#create'
 end

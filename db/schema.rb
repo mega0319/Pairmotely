@@ -10,21 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615212059) do
+ActiveRecord::Schema.define(version: 20170616193351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "poker_table_id"
+    t.string "content"
+  end
+
   create_table "poker_tables", force: :cascade do |t|
     t.string "name"
     t.integer "creator_id"
-    t.string "board_cards"
     t.integer "turns"
     t.integer "pot"
     t.integer "dealer_button_position"
     t.integer "small_blind"
     t.integer "big_blind"
     t.integer "current_turn_position"
+    t.integer "deck_id"
+    t.jsonb "board"
+    t.jsonb "players"
+    t.jsonb "player_hand"
+    t.text "active_players", default: [], array: true
+    t.text "folded_players", default: [], array: true
+    t.boolean "dealt", default: false
+    t.string "winner"
+    t.integer "current_bet"
+    t.jsonb "winning_hand"
+    t.string "phase"
   end
 
   create_table "user_poker_tables", force: :cascade do |t|
