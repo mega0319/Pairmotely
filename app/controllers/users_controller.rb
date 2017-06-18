@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
   def index
-    users = User.all
+    # users = User.all
+    users = User.where("current_table": params["pokertable_id"])
+    # byebug
     render json: users
   end
 
@@ -26,7 +28,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :email, :play_chips)
+    params.require(:user).permit(:username, :password, :email, :play_chips, :current_table)
   end
 
 end

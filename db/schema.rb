@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170618035103) do
+ActiveRecord::Schema.define(version: 20170618185124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170618035103) do
     t.integer "current_bet"
     t.jsonb "winning_hand"
     t.string "phase"
+    t.integer "players_logged_in", default: [], array: true
   end
 
   create_table "user_poker_tables", force: :cascade do |t|
