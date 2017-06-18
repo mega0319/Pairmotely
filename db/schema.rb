@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616193351) do
+ActiveRecord::Schema.define(version: 20170618035103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20170616193351) do
     t.integer "small_blind"
     t.integer "big_blind"
     t.integer "current_turn_position"
-    t.integer "deck_id"
+    t.string "deck_id"
     t.jsonb "board"
     t.jsonb "players"
     t.jsonb "player_hand"
