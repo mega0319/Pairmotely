@@ -7,7 +7,7 @@ class PokerTablesController < ApplicationController
 
   def create
     table = PokerTable.new(poker_table_params)
-
+    table.name = Faker::StarWars.planet
     table.save
     # byebug
     params[:user_updates][:user_id].each do |user_id|
