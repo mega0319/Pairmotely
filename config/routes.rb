@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :users
   resources :poker_tables
   resources :messages
+  get '/users_scores', to: 'users#all' 
   post '/auth', to: 'auth#create'
 end

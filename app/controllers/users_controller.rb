@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     render json: users
   end
 
+  def all
+    users = User.order(:play_chips)
+    render json: users
+  end
+
   def create
     user = User.create(user_params)
     users = User.all
